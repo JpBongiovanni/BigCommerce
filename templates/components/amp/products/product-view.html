@@ -17,11 +17,15 @@
             delay="5000"
             type="slides">
             {{#each product.images}}
-                <amp-img src="{{getImage this 'product_size' (cdn ../theme_settings.default_image_product)}}"
+                <amp-img class="card-image lazyload" src="{{getImage this 'product_size' (cdn ../theme_settings.default_image_product)}}"
                     width="250"
                     height="250"
                     layout="responsive"
-                    alt="{{this.alt}}">
+                    alt="{{image.alt}}"
+                    title="{{image.alt}}"
+                    data-src="{{getImage image}}"
+                    data-hoverimage='{{getImage images.1.data}}'
+                    >
                 </amp-img>
             {{/each}}
         </amp-carousel>

@@ -4,6 +4,7 @@ category:
     products:
         limit: {{theme_settings.categorypage_products_per_page}}
 ---
+{{inject "categoryProducts" category.products}}
 {{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
 {{inject "categoryId" category.id}}
 {{#partial "head"}}
@@ -42,7 +43,7 @@ category:
         </aside>
     {{else if category.shop_by_price}}
         {{#if theme_settings.shop_by_price_visibility}}
-             <aside class="page-sidebar" id="faceted-search-container">
+            <aside class="page-sidebar" id="faceted-search-container">
                 {{> components/category/sidebar}}
             </aside>
         {{/if}}
